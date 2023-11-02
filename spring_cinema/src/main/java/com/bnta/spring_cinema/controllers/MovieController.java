@@ -20,6 +20,7 @@ public class MovieController {
     @GetMapping(value = "/{id}")
     ResponseEntity<Movie> returnMovie(@PathVariable long id){
         Movie movie = movieService.getMovieById(id);
+        System.out.println("got movie");
         return new ResponseEntity<>(movie, HttpStatus.OK);
     }
 

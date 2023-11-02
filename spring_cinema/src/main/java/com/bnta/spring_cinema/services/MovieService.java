@@ -20,7 +20,13 @@ public class MovieService {
     }
 
     public Movie getMovieById(long id){
-        return movieRepository.getById(id);
+        System.out.println("method started");
+        Optional<Movie> optionalMovie = movieRepository.findById(id);
+        if (optionalMovie.isPresent()){
+            return optionalMovie.get();
+        } else {
+            return null;
+        }
     }
 
     public void addMovie(Movie movie){
